@@ -28,22 +28,22 @@ class Dead_Reckoning():
 			self.steps = steps
 			self.localAcc = localAcc
 			self.globalVec = [np.array([[0],
-                          		   [0],
-                                   [0]])]
+                          		   	    [0],
+                                   	    [0]])]
 			self.globalPos = [np.array([[0],
-                          		   [0],
-                                   [0]])]
+                          		   		[0],
+                                   		[0]])]
 			self.angles = [np.array([[0],
-                          		   [0],
-                                   [0]])]
+                          		     [0],
+                                     [0]])]
 			# Initially, it is an identity matrix
 			self.rotation_matrix = np.array([[1,0,0],
-                          		   [0,1,0],
-                                   [0,0,1]])
+                          		   			 [0,1,0],
+                                             [0,0,1]])
 			g = 9.81
 			self.gravity = np.array([[0],
-                          		   [0],
-                                   [-1*g]])
+                          		     [0],
+                                     [-1*g]])
 			self.x = [0]
 			self.y = [0]
 			self.z = [0]
@@ -68,8 +68,8 @@ class Dead_Reckoning():
 				A = float(angle_delta[0])
 
 				rotation = np.array([[cos(C)*cos(B),-1*sin(C)*cos(A) + cos(C)*sin(B)*sin(A), sin(C)*sin(A) + cos(C)*sin(B)*cos(A)],
-                          		   [sin(C)*cos(B), cos(C)*cos(A) + sin(C)*sin(B)*sin(A), -1*cos(C)*sin(A) + sin(C)*sin(B)*cos(A)],
-                                   [-1*sin(B), cos(B)*sin(A), cos(B)*cos(A)]]) 
+                          		     [sin(C)*cos(B), cos(C)*cos(A) + sin(C)*sin(B)*sin(A), -1*cos(C)*sin(A) + sin(C)*sin(B)*cos(A)],
+                                     [-1*sin(B), cos(B)*sin(A), cos(B)*cos(A)]]) 
 
 
 				self.rotation_matrix = np.matmul(self.rotation_matrix,rotation)
@@ -97,16 +97,16 @@ class Dead_Reckoning():
 				print("Z: " + str(float(new_global_pos[2])))
 
 				new_xhat = np.matmul(self.rotation_matrix,np.array([[1],
-                          		   [0],
-                                   [0]]))
+                          		   							    	[0],
+                                   									[0]]))
 
 				new_yhat = np.matmul(self.rotation_matrix,np.array([[0],
-                          		   [1],
-                                   [0]]))
+                          		   									[1],
+                                   									[0]]))
 
 				new_zhat = np.matmul(self.rotation_matrix,np.array([[0],
-                          		   [0],
-                                   [1]]))
+                          		   									[0],
+                                   									[1]]))
 
 				self.xhat.append(new_xhat)
 				self.yhat.append(new_yhat)

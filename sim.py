@@ -46,8 +46,8 @@ if __name__ == "__main__":
 
 	acc = acc1 + acc2 + acc3 + acc4 + acc5 + acc6 + acc7 + acc8 + acc9
 	localAngular = [np.array([[0],
-                              [0.003],
-                              [0]])] * len(acc)
+                             [0.003],
+                             [0]])] * len(acc)
 	steps = len(acc)
 	new_sim = Dead_Reckoning.Dead_Reckoning(acc,localAngular,resolution,steps)
 	new_sim.simulate()
