@@ -10,7 +10,6 @@ Python-based dead reckoning algorithm for inertial navigation system
 System Input:
 	- Accelerometer Data
 	- Gyroscope Data
-	- Euler Angle
 '''
 
 def sin(x):
@@ -125,7 +124,10 @@ class Dead_Reckoning():
 			ax.set_xlabel('$X$')
 			ax.set_ylabel('$Y$')
 			ax.set_zlabel('$Z$')
-			ax.scatter(self.x, self.y, self.z,s=[0.03]*len(self.x))
+			ax.set_title("Dead Reckoning from Raw Accelerometer and Gyroscope Modules - Simulation")
+			ax.scatter(self.x, self.y, self.z,s=[0.2]*len(self.x))
+			ax.scatter([0], [0], [0], c="r")
+			ax.scatter([self.x[-1]], [self.y[-1]], [self.z[-1]], c="g")
 			pyplot.show()
 
 
